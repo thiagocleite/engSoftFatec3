@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Loja de carros tamagoshi</title>
+    <style>
+#carros {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#carros td, #carros th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#carros tr:nth-child(even){background-color: #f2f2f2;}
+
+#carros tr:hover {background-color: #ddd;}
+
+#carros th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+    </style>
+</head>
+<body>
+<h1>Loja de carros Tamagoshi</h1>
+<hr>
+
+<h3>Carros á venda</h3>
+<table id="carros">
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Fabricante</th>
+        <th>Ano</th>
+        <th>Valor</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="carro:${carros}">
+        <td th:text="${carro.Nome}"></td>
+        <td th:text="${carro.Marca}"></td>
+        <td th:text="${carro.Ano}"></td>
+        <td th:text="|R$ ${carro.Valor}|"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
